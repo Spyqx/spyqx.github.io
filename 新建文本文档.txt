@@ -1,0 +1,3 @@
+https://spyqx.github.io
+cd spyqx.github.io
+git add--all
