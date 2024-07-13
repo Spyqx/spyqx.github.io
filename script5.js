@@ -1,11 +1,9 @@
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
-const volumeControl = document.getElementById('volumeControl');
 
 let audioContext;
 let mediaStreamSource;
 let mediaRecorder;
-let gainNode;
 let audioChunks = [];
 
 startBtn.addEventListener('click', async () => {
@@ -17,16 +15,11 @@ startBtn.addEventListener('click', async () => {
     mediaStreamSource = audioContext.createMediaStreamSource(stream);
 
     // 创建一个增益节点用于音量控制
-    gainNode = audioContext.createGain();
+    const gainNode = audioContext.createGain();
     mediaStreamSource.connect(gainNode);
 
     // 将增益节点连接到音频输出
     gainNode.connect(audioContext.destination);
-
-    // 设置音量控制滑动条的事件监听器
-    volumeControl.addEventListener('input', () => {
-        gainNode.gain.value = volumeControl.value;
-    });
 
     // 设置MediaRecorder以便后续停止录音时保存音频数据
     mediaRecorder = new MediaRecorder(stream);
