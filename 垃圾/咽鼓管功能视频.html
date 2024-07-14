@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+</head>
+<body>
+<video width="640" height="480" controls>
+    <source id="videoSource" src="doc/咽鼓管保健功能/咽鼓管保健.MP4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+<script>
+    // 在控制台输出 "hello world"
+    console.log("hello world");
+
+    // 定义一个名为 encodeLink 的函数，该函数接收一个参数 linkId
+    function encodeLink(linkId) {
+        // 通过 linkId 获取对应的链接元素
+        var link = document.getElementById(linkId);
+        // 对链接的 href 属性进行 URL 编码，并将编码后的 URL 重新赋值给 href 属性
+        link.href = encodeURI(link.src);
+    }
+
+    // 对 ID 为 "link1" 的链接进行 URL 编码
+    encodeLink("videoSource");
+</script>
+</body>
+</html>

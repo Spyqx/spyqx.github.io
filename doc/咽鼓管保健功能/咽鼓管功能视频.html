@@ -6,9 +6,26 @@
     <title>Video Player</title>
 </head>
 <body>
-    <video width="640" height="480" controls>
-        <source src="../咽鼓管扩展手术/ear.MP4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+<video width="640" height="480" controls>
+    <source id="videoSource" src="ear.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    // 在控制台输出 "hello world"
+    console.log("hello world");
+
+    // 定义一个名为 encodeSource 的函数，该函数接收一个参数 sourceId
+    function encodeSource(sourceId) {
+        // 通过 sourceId 获取对应的 source 元素
+        var source = document.getElementById(sourceId);
+        // 对 source 的 src 属性进行 URL 编码，并将编码后的 URL 重新赋值给 src 属性
+        source.src = encodeURI(source.src);
+        console.log("encode source: " + source.src);
+    }
+
+    // 对 ID 为 "videoSource" 的 source 元素进行 URL 编码
+    // encodeSource("videoSource");
+</script>
 </body>
 </html>
